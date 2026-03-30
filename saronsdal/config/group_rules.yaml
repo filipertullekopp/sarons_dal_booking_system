@@ -1,0 +1,138 @@
+# ---------------------------------------------------------------------------
+# Phase 2: Group detection rules and configuration
+# ---------------------------------------------------------------------------
+# Weights, patterns, thresholds, and noise words used during group resolution.
+# Tuned conservatively — prefer missing weak links over creating false edges.
+# ---------------------------------------------------------------------------
+
+# Edge weight for each link type.
+# Used by the optimizer (Phase 4) to weight co-location preferences.
+link_strength:
+  explicit_family:          0.90   # "fam. Husvik" resolved to exactly one booking
+  explicit_named_people:    0.85   # "Otto Husvik" resolved to exactly one booking
+  group_field_membership:   0.65   # shared canonical group_field label
+  organization_membership:  0.50   # shared canonical org/company label
+
+# Norwegian noise words appended or prepended to group names.
+# Stripped before alias lookup.  Treated as whole words only (word-boundary match).
+noise_words:
+  - gjengen
+  - gruppa
+  - gruppen
+  - grupppen    # observed typo variant
+  - laget
+  - kretsen
+  - vennene
+  - venner
+  - fellesskapet
+  - fellesskapsgjengen
+  - gruppa
+
+# Generic org/company values that indicate no real organization.
+# These must NOT produce org_membership edges.
+# (Supplement to private_labels in group_aliases.yaml.)
+org_blocklist:
+  - familie
+  - familien
+  - family
+  - gruppe
+  - venner
+  - friends
+  - folk
+
+# Norwegian proximity trigger phrases.
+# A capitalized word/phrase that follows one of these is a candidate reference.
+# Patterns are matched case-insensitively.
+proximity_triggers:
+  - "\\bbo\\s+(?:v[æa]re\\s+)?n[æa]r(?:me)?\\b"
+  - "\\bbo\\s+(?:v[æa]re\\s+)?i\\s+n[æa]rheten\\s+av\\b"
+  - "\\bbo\\s+med\\b"
+  - "\\bsitte\\s+(?:ved\\s+siden\\s+av|n[æa]r)\\b"
+  - "\\bsammen\\s+med\\b"
+  - "\\bved\\s+siden\\s+av\\b"
+  - "\\bn[æa]rme\\s+seg\\b"
+
+# Family reference patterns.
+# Capture group 1 = surname.
+family_patterns:
+  - "\\bfam(?:ilie(?:n)?)?[.]?\\s+([A-ZÆØÅ][a-zæøå]+)"
+  - "\\bfamilien\\s+([A-ZÆØÅ][a-zæøå]+)"
+  - "\\bfamilie\\s+([A-ZÆØÅ][a-zæøå]+)"
+  - "\\bnærme\\s+fam(?:ilie(?:n)?)?[.]?\\s+([A-ZÆØÅ][a-zæøå]+)"
+
+# Pattern for a full Norwegian name (First Last).
+# Matched after proximity triggers for higher confidence;
+# also matched standalone in group_field for medium confidence.
+full_name_pattern: "\\b([A-ZÆØÅ][a-zæøå]+(?:-[A-ZÆØÅ][a-zæøå]+)?)\\s+([A-ZÆØÅ][a-zæøå]+)\\b"
+
+# Norwegian stop words — names extracted by the full_name_pattern are discarded
+# if the first token matches any of these (even when capitalised at sentence start).
+stop_words:
+  - og
+  - eller
+  - ikke
+  - men
+  - vi
+  - de
+  - dem
+  - det
+  - den
+  - de
+  - jeg
+  - han
+  - hun
+  - man
+  - med
+  - til
+  - fra
+  - for
+  - av
+  - på
+  - om
+  - er
+  - en
+  - et
+  - har
+  - vil
+  - skal
+  - kan
+  - inn
+  - ved
+  - oss
+  - dere
+  - etter
+  - også
+  - at
+  - som
+  - her
+  - der
+  - hvis
+  - når
+  - uten
+  - over
+  - under
+  - alle
+  - noen
+  - mange
+  - i  # common as preposition even though it's a single letter
+
+# ---------------------------------------------------------------------------
+# Thresholds
+# ---------------------------------------------------------------------------
+thresholds:
+  # Minimum edge confidence for an edge to be included in the graph.
+  min_edge_confidence:           0.50
+
+  # Minimum name-resolution confidence to create a booking-booking edge.
+  # Below this, the reference is emitted as an AmbiguousGroupCase even if
+  # it resolved to exactly one booking.
+  min_name_resolution_confidence: 0.60
+
+  # A connected component with more than this many booking members,
+  # connected only via org/group_field label nodes, is treated as a
+  # LargeWeakCluster instead of a ResolvedCluster.
+  large_group_threshold:          8
+
+  # Minimum link strength for a pair of bookings inside a LargeWeakCluster
+  # to qualify as a strong sub-link (and therefore a subcluster member).
+  subcluster_min_strength:        0.80

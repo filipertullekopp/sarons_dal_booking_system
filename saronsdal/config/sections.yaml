@@ -1,0 +1,98 @@
+# ---------------------------------------------------------------------------
+# Campsite section definitions and spelling aliases
+# ---------------------------------------------------------------------------
+# canonical_name: the official Norwegian name used internally (lowercase key).
+# aliases: all observed spelling variants, including mojibake versions.
+#          Matching is case-insensitive after ftfy encoding repair.
+#
+# Equipment restrictions can be added per section when known.
+# ---------------------------------------------------------------------------
+
+sections:
+  furulunden:
+    canonical: "Furulunden"
+    aliases:
+      - "Furulunden"
+      - "furulunden"
+      - "Furulund"
+      - "furulund"
+
+  furutoppen:
+    canonical: "Furutoppen"
+    aliases:
+      - "Furutoppen"
+      - "furutoppen"
+      - "Furuterrassen"  # seen in real booking text
+      - "furuterrassen"
+
+  elvebredden:
+    canonical: "Elvebredden"
+    aliases:
+      - "Elvebredden"
+      - "elvebredden"
+      - "Elvebredden felt"  # "felt" = field, sometimes appended
+
+  fjellterrassen:
+    canonical: "Fjellterrassen"
+    aliases:
+      - "Fjellterrassen"
+      - "fjellterrassen"
+      - "Fjellterassen"
+      - "fjellterassen"
+      - "Fjelltarassen"     # seen in the Sirvoy form label
+      - "fjelltarassen"
+      - "Fjellterasse"
+      - "fjellterasse"
+      - "fjellterassen"
+
+  vaardalen:
+    canonical: "Vårdalen"
+    aliases:
+      - "Vårdalen"
+      - "vårdalen"
+      - "Vaardalen"
+      - "vaardalen"
+      - "VÃ¥rdalen"       # mojibake variant
+      - "vÃ¥rdalen"
+
+  egelandsletta:
+    canonical: "Egelandsletta"
+    aliases:
+      - "Egelandsletta"
+      - "egelandsletta"
+      - "Egelandssletta"   # double-s variant seen in real data
+      - "egelandssletta"
+      - "Engelandsletta"   # typo variant
+      - "engelandsletta"
+      - "Egelandsjordet"   # alternative name seen in 2025 data
+      - "egelandsjordet"
+
+  internatet:
+    canonical: "Internatet"
+    aliases:
+      - "Internatet"
+      - "internatet"
+      - "Bibelskolen"
+      - "bibelskolen"
+
+  bedehuset:
+    canonical: "Bedehuset"
+    aliases:
+      - "Bedehuset"
+      - "bedehuset"
+
+# Section names that appear as wish-field values but refer to sections (not groups).
+# Any group_field value matching one of these should be moved to preferred_sections.
+section_name_set:
+  - "Furulunden"
+  - "Furutoppen"
+  - "Elvebredden"
+  - "Fjellterrassen"
+  - "Fjellterassen"
+  - "Fjelltarassen"
+  - "Vårdalen"
+  - "Egelandsletta"
+  - "Egelandssletta"
+  - "Internatet"
+  - "Bibelskolen"
+  - "Bedehuset"

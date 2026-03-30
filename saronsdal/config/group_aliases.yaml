@@ -1,0 +1,119 @@
+# ---------------------------------------------------------------------------
+# Known church / organization name aliases
+# ---------------------------------------------------------------------------
+# Each entry maps a canonical label to a list of observed spelling variants.
+# Matching is done case-insensitively after encoding repair and whitespace
+# normalisation.
+#
+# This file must be maintained manually as new spelling variants are observed.
+# Run the CLI with --dump-org-values to see all unique org/group values in the
+# current booking export, then add new variants here.
+# ---------------------------------------------------------------------------
+
+organizations:
+
+  betel_hommersaak:
+    canonical: "Betel Hommersåk"
+    aliases:
+      - "Betel Hommersåk"
+      - "Betel HommersÃ¥k"       # mojibake
+      - "Betel HommersÃ¥k gjengen"
+      - "Betel, Hommersåk"
+      - "Betelgjengen Hommersåk"
+      - "Betelgjengen HommersÃ¥k"
+      - "HommersÃ¥k"
+      - "Hommersåk"
+      - "Betel HommersÃ¥k gjjengen"  # typo variant
+      - "Betel hommersåk"
+      - "Betel Hommersåk"
+      - "Betel gjengen"
+
+  pinsekirken_flekkefjord:
+    canonical: "Pinsekirken Flekkefjord"
+    aliases:
+      - "Pinsekirken Flekkefjord"
+      - "Pinsekirka Flekkefjord"
+      - "pinsekirken flekkefjord"
+
+  betania_sokndal:
+    canonical: "Betania Sokndal"
+    aliases:
+      - "Betania Sokndal"
+      - "Pinsemenigheten Betania"
+      - "Pinsemenigheten Betania Sokndal"
+      - "betania sokndal"
+
+  osteroey_planeten:
+    canonical: "Osterøy Planeten"
+    aliases:
+      - "Osterøy planeten"
+      - "OsterÃ¸y planeten"       # mojibake
+      - "OsterÃ¸y Planeten"
+      - "Osterøy"
+      - "OsterÃ¸y"
+      - "Osterøygjengen"
+      - "OsterÃ¸ygjengen"
+
+  venneslagruppa:
+    canonical: "Venneslagruppa"
+    aliases:
+      - "Venneslagruppa"
+      - "venneslagruppa"
+      - "Vennesla gruppa"
+      - "Venneslagjengen"
+
+  sentrumkirken_disippelfellesskapet:
+    canonical: "Sentrumkirken / Disippelfellesskapet"
+    aliases:
+      - "Sentrumkirken / Disippelfellesskapet"
+      - "Disippelfellesskapet"
+      - "Sentrumkirken"
+
+  sola_kristne_felleskap:
+    canonical: "Sola Kristne Felleskap"
+    aliases:
+      - "Sola Kristne Felleskap"
+      - "Kristen Tjeneste/Sola Kristne Felleskap"
+
+  filadelfia_lyngdal:
+    canonical: "Filadelfiakirken Lyngdal"
+    aliases:
+      - "Filadelfiakirken Lyngdal"
+      - "filadelfia lyngdal"
+
+  oasenkirka:
+    canonical: "Oasenkirka"
+    aliases:
+      - "Oasenkirka"
+      - "oasenkirka"
+
+  north_worship:
+    canonical: "North Worship"
+    aliases:
+      - "North Worship"
+      - "Northworship"
+      - "north worship"
+
+  tbve:
+    canonical: "TBVE"
+    aliases:
+      - "TBVE"
+      - "tbve"
+      
+  camp_jaeren:
+    canonical: Camp Jæren
+    aliases:
+    - Camp Jæren
+    - camp Jæren
+    _classification: new_group_alias
+    _confidence: 1.0
+    _reasoning: The phrase matches the 'camp X' pattern, indicating a Pentecostal
+      youth camp, which should be classified as a new group alias.
+
+# Values in the company/org field that should be treated as "no organization".
+private_labels:
+  - "privat"
+  - "Privat"
+  - "private"
+  - "-"
+  - "0"

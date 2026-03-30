@@ -1,0 +1,7 @@
+Booking No.,Booking source,Booking Date,Check-in,Check-out,First Name,Last Name,Company,Number of Guests,Number of Rooms,Language,Confirmed,Phone,Email,Guest Message,Comment,"Regnr på bobil , campingvogn eller bil (skriv 0 hvis du ikke har)","Lengde på bobil, campingvogn eller telt","Bredde på telt/fortelt/markise",Markise til bobil/campingvogn,Fortelt til bobil eller campingvogn,"Ønsket plassering (Bergesli kun for Youthplanet)",Skal være medhjelper i sommer
+B001,Nettside,2024-03-01,2024-07-01,2024-07-08,Ola,Nordmann,"Betel HommersÃ¥k",4,1,no,Ja,+4790000001,ola@example.com,,,"AB12345","7,5","3,5",Nei,Ja,Furutoppen,Nei
+B002,Nettside,2024-03-02,2024-07-05,2024-07-10,Kari,Hansen,privat,3,1,no,Ja,+4790000002,kari@example.com,"Bo nær familien Olsen",,0,"4.10x7",,Nei,Nei,,Nei
+B003,Nettside,2024-03-03,2024-07-06,2024-07-09,Lars,Svensson,privat,2,1,sv,Ja,+4790000003,lars@example.com,,,0,"Telt 640 cm",,Nei,Nei,,Nei
+B004,Resepsjonen,2024-04-01,2024-07-10,2024-07-15,Truls,Mikkelsen,privat,2,1,no,Ja,+4790000004,truls@example.com,,,,,,,,
+B005,Nettside,2024-03-04,2024-07-12,2024-07-19,Svein,Eriksen,privat,2,1,no,Ja,+4790000005,svein@example.com,,,0,"9,51 m (med drag)",,Nei,Nei,"D25-D27",Nei
+,Nettside,2024-03-05,2024-07-15,2024-07-20,NoName,NoName,privat,1,1,no,Nei,,,,,,,,,,

@@ -1,0 +1,7 @@
+ftfy>=6.0
+google-genai>=1.0.0
+networkx>=3.0
+pandas>=2.0
+PyYAML>=6.0
+pytest>=7.0
+pytest-cov>=4.0

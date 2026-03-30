@@ -1,0 +1,10 @@
+area;spot_id;length;hillyness;end_row;not_spot;no_bobil;no_bobil_nor_caravan;reserved;length_norm
+Furulunden;A1;12.5;0;0;0;0;0;0;12.5
+Furulunden;A2;10.0;1;1;0;0;0;0;10.0
+Furulunden;B1;8.0;0;0;1;0;0;0;
+Furulunden;B2;11.0;2;0;0;0;0;1;11.0
+Furulunden;C1;9.5;1;0;0;1;0;0;9.5
+Furulunden;C2;8.5;0;0;0;0;1;0;8.5
+Furulunden;D1;13.0;0;0;0;0;0;0;8.5
+Furulunden;;5.0;0;0;0;0;0;0;
+;BADSPOT;10.0;0;0;0;0;0;0;

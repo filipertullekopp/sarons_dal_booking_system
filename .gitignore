@@ -1,0 +1,41 @@
+# --- Secrets ---
+.env
+
+# --- Python ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- Generated output (may contain guest personal data) ---
+output/
+llm_suggestions/
+out_debug_phase2/
+out_debug_phase2.5/
+out_raw_test/
+allocation_output
+allocation_output.json
+assigned_camping_spots.csv
+
+# --- Raw booking exports (contain guest personal data) ---
+bookings_basic.csv
+bookings_specification.csv
+**/bookings_*.csv
+
+# --- IDE ---
+.vscode/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Old projects ---
+old projects/

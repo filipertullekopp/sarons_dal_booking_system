@@ -1,0 +1,78 @@
+# ---------------------------------------------------------------------------
+# Equipment and space-model configuration
+# ---------------------------------------------------------------------------
+# All lengths/widths are in METRES unless otherwise stated.
+# Edit this file to change allocation rules without touching Python code.
+
+vehicle:
+  # Base body width assumed for caravans and motorhomes.
+  # A typical European touring caravan is ~2.75 m wide.
+  caravan_base_width_m: 2.75
+  motorhome_base_width_m: 2.75
+
+  # Default fortelt (side awning-tent) lateral width when only yes/no is known.
+  # A fortelt extends to the SIDE of the caravan, adding to WIDTH, not LENGTH.
+  # A conservative typical fortelt is 2.5–3.5 m wide when open.
+  # Set conservatively so we do not under-count required spots.
+  # BLOCKER: update this once a representative measurement is available.
+  default_fortelt_width_m: 2.5
+
+spot_geometry:
+  # Every camping spot is exactly 3 m wide.
+  spot_width_m: 3.0
+
+  # Width thresholds that determine required spot count.
+  # total_width_m in (0, narrow_threshold]  → 2 spots
+  # total_width_m in (narrow_threshold, medium_threshold] → 3 spots
+  # total_width_m in (medium_threshold, wide_threshold]   → 4 spots
+  narrow_threshold_m: 3.0
+  medium_threshold_m: 6.0
+  wide_threshold_m: 9.0
+
+feasibility:
+  # A support spot (not the primary/vehicle spot) may be up to this many metres
+  # shorter than the vehicle body length requirement.
+  # Applies to all spots after the first in a multi-spot allocation.
+  support_spot_length_tolerance_m: 2.0
+
+  # Sanity bounds for parsed vehicle/tent lengths.
+  min_plausible_length_m: 1.5
+  max_plausible_length_m: 15.0
+
+  # Length values exactly equal to zero are treated as missing, not as 0 m.
+  zero_means_missing: true
+
+# ---------------------------------------------------------------------------
+# Specification-field → vehicle type mapping
+# These are the canonical Specification values from bookings_specification.csv.
+# ---------------------------------------------------------------------------
+specification_map:
+  "Campingvogn": "caravan"
+  "Bobil": "motorhome"
+  "Camplet": "camplet"
+  "Telt - stort (3-8 personer)": "tent"
+  "Telt - lite (1-2 personer)": "tent"
+
+# Size hint derived from the Specification string (separate from type):
+specification_size_hint:
+  "Telt - stort (3-8 personer)": "large"
+  "Telt - lite (1-2 personer)": "small"
+
+# Specification values that indicate INDOOR accommodation — not a campsite booking.
+# These bookings are NOT excluded, but they get a review flag.
+indoor_specification_values:
+  - "Internatet"
+  - "Campinghytter"
+
+# Specification values that are not vehicle types and not indoor — flag for review.
+unknown_specification_values:
+  - "Youthplanet"
+
+# ---------------------------------------------------------------------------
+# Confidence thresholds
+# ---------------------------------------------------------------------------
+confidence:
+  # Bookings below this threshold are included in the review report.
+  review_threshold: 0.5
+  # Bookings below this threshold are marked is_low_confidence.
+  low_threshold: 0.4

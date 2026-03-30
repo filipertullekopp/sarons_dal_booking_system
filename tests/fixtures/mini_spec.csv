@@ -1,0 +1,7 @@
+Booking No.,Type,Specification,Room No.,Guests,Comment,Units,Unit Price,Status
+B001,EXTRAS,Campingvogn,,4,,1,,Confirmed
+B001,ACCOMM,"Furulunden A01 (12,5m)",,4,,1,250,Confirmed
+B002,EXTRAS,"Telt - stort (3-8 personer)",,3,,1,,Confirmed
+B004,EXTRAS,Bobil,,2,,1,,Confirmed
+B005,EXTRAS,Bobil,,2,,1,,Confirmed
+B006,EXTRAS,Campingvogn,,2,,1,,Confirmed
