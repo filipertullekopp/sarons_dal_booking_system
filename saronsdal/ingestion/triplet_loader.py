@@ -77,10 +77,11 @@ CAMPING_SECTIONS: frozenset[str] = frozenset({
 #   - optional space around the hyphen ("A01- 03")
 #   - optional repeated row letter before end number ("A01-A03")
 #   - optional trailing annotation "(7,8m)", "TELT (5m)", etc.
+#   - annotation immediately after end number with no space ("B04-06(6,8m)")
 _RANGE_RE = re.compile(
     r"^(?P<section>\S+)\s+"
     r"(?P<row>[A-Z])(?P<start>\d+)\s*-\s*(?P=row)?(?P<end>\d+)"
-    r"(?:\s.*)?$"
+    r"(?:[\s(].*)?$"
 )
 
 # Matches single-spot entries like "Bibelskolen D22" or "Elvebredden C04".
